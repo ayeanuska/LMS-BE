@@ -1,0 +1,23 @@
+@rooturl= http://localhost:9002/api/v1
+
+@authEP= {{rooturl}}/auth
+
+GET http://localhost:9002/
+
+###
+POST {{authEP}}/login
+Content-Type: application/json
+
+{"email":"ayeanuska@gmail.com",
+"password":"1234"}
+
+
+###
+POST {{{authEP}}}/register
+Content-Type: application/application/json
+
+{"fName":"Anuska",
+"lName":"Shrestha",
+"email":"ayeanuska@gmail.com",
+"phone":"0424423123",
+"password":"1234"}
