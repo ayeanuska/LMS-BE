@@ -19,6 +19,7 @@ export const loginValidator = (req, res, next) => {
   joiValidator(loginSchema, req, res, next);
 };
 
+//register validator
 export const registerValidator = (req, res, next) => {
   const registerSchema = Joi.object({
     lName: Joi.string(),
@@ -28,4 +29,17 @@ export const registerValidator = (req, res, next) => {
     password: Joi.string(),
   });
   joiValidator(registerSchema, req, res, next);
+};
+
+// create book validator
+export const createBookValidator = (req, res, next) => {
+  const createBookSchema = Joi.object({
+    title: Joi.string().required(),
+    author: Joi.string().required(),
+    thumbnail: Joi.string().required(),
+    isbn: Joi.string().required(),
+    genre: Joi.string().required(),
+    publishedYear: Joi.number().required(),
+  });
+  joiValidator(createBookSchema, req, res, next);
 };

@@ -4,7 +4,12 @@ import {
   registerValidator,
 } from "../middlewares/joiValidation.js";
 
-import { login, register } from "../controllers/authControllers.js";
+import {
+  getUserDetail,
+  login,
+  register,
+} from "../controllers/authControllers.js";
+import { authenticate, isAdmin } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
@@ -13,5 +18,8 @@ router.post("/login", loginValidator, login);
 
 //register api
 router.post("/register", registerValidator, register);
+
+// get
+router.get("/", authenticate, getUserDetail);
 
 export default router;

@@ -4,6 +4,7 @@ import { connectMongoDB } from "./src/config/mongoConfig.js";
 import morgan from "morgan";
 import { errorHandler } from "./src/middlewares/errorHandler.js";
 import authRouter from "./src/routes/authRouter.js";
+import bookRouter from "./src/routes/bookRouter.js";
 
 //for req.body
 const app = express();
@@ -31,6 +32,9 @@ app.get("/", (req, res) => {
 
 //auth route
 app.use("/api/v1/auth", authRouter);
+
+//book route
+app.use("/api/v1/books", bookRouter);
 
 //error handler
 app.use(errorHandler);

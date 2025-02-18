@@ -1,3 +1,7 @@
+import { CreateNewUser, getUserByEmaiL } from "../models/users/UserModel.js";
+import { compareText, encryptText } from "../utils/bcrypt.js";
+import { jwtSign } from "../utils/jwt.js";
+
 export const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
@@ -84,4 +88,14 @@ export const register = async (req, res, next) => {
       });
     }
   }
+};
+
+export const getUserDetail = async (req, res, next) => {
+  req.userData.password = "";
+
+  return res.json({
+    status: "success",
+    message: "User Detail",
+    user: req.userData,
+  });
 };
