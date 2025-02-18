@@ -14,12 +14,12 @@ Content-Type:application/json
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnbWFpbC5jb20iLCJpYXQiOjE3Mzk4NDkyNTEsImV4cCI6MTczOTkzNTY1MX0.2VDJnM4_jgo5bWl29k_uzYgsmreG7twMHyjD7qs2lf0
 
 {
-    "title":"booki",
-    "author": "book author",
+    "title":"marley & me",
+    "author": "john groogran",
     "thumbnail":" http://wallappaer.com/wp/rdYano%.jpg",
-    "isbn":"123456",
-    "genre":"fiction",
-    "publishedYear": "2020"
+    "isbn":"226",
+    "genre":"autobiograohy",
+    "publishedYear": "2019"
 }
 
 
