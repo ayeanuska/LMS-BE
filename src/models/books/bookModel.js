@@ -1,4 +1,4 @@
-import bookSchema from "./bookSchema.js";
+import bookSchema from "./BookSchema.js";
 
 // create user
 export const insertBook = (bookObj) => {
