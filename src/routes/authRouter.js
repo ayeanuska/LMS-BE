@@ -1,7 +1,10 @@
 import express from "express";
-import { loginValidator } from "../middlewares/joiValidation.js";
-import { getUserByEmaiL } from "../models/users/UserModel.js";
-import { compareText } from "../utils/bcrypt.js";
+import {
+  loginValidator,
+  registerValidator,
+} from "../middlewares/joiValidation.js";
+import { CreateNewUser, getUserByEmaiL } from "../models/users/UserModel.js";
+import { compareText, encryptText } from "../utils/bcrypt.js";
 import { jwtSign } from "../utils/jwt.js";
 
 const router = express.Router();
@@ -55,43 +58,45 @@ router.post("/login", loginValidator, async (req, res, next) => {
   }
 });
 
-// //register api
-// router.post("/register", async (req, res, next) => {
-//   try {
-//     //   const newUser = new User(req.body);
+//register api
+router.post("/register", registerValidator, async (req, res, next) => {
+  try {
+    //   const newUser = new User(req.body);
 
-//     const { username, email } = req.body;
-//     let { password } = req.body;
+    const { fName, lName, email, phone } = req.body;
+    let { password } = req.body;
 
-//     const saltRound = 10;
-//     password = await encryptText(password);
+    const saltRound = 10;
+    password = await encryptText(password);
 
-//     const data = await createUser({
-//       username,
-//       email,
-//       password,
-//     });
+    const data = await CreateNewUser({
+      fName,
+      lName,
+      email,
+      password,
+      phone,
+    });
 
-//     return res.status(201).json({
-//       status: "success",
-//       message: "user created",
-//       data,
-//     });
-//   } catch (error) {
-//     console.log(error.message);
+    return res.status(201).json({
+      status: "success",
+      message: "user created",
+      data,
+    });
+  } catch (error) {
+    console.log(error.message);
 
-//     if (error?.message.includes("E11000")) {
-//       next({
-//         statusCode: 400,
-//         message: "Duplicate userr",
-//       });
-//     } else {
-//       next({
-//         statusCode: 500,
-//         message: "Erorr creating user",
-//       });
-//     }
-//   }
-// });
+    if (error?.message.includes("E11000")) {
+      next({
+        statusCode: 400,
+        message: "Duplicate userr",
+      });
+    } else {
+      next({
+        statusCode: 500,
+        message: "Erorr creating user",
+      });
+    }
+  }
+});
 
 export default router;

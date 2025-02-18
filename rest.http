@@ -13,8 +13,8 @@ Content-Type: application/json
 
 
 ###
-POST {{{authEP}}}/register
-Content-Type: application/application/json
+POST {{authEP}}/register
+Content-Type: application/json
 
 {"fName":"Anuska",
 "lName":"Shrestha",
