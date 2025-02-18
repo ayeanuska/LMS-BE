@@ -8,7 +8,7 @@ const router = express.Router();
 //post api/v1/book
 router.post("/", authenticate, createBookValidator, createBook);
 
-// //get api/v1/book
+//get api/v1/book
 // router.get("/", authenticate, getBookDetails);
 
 export default router;
