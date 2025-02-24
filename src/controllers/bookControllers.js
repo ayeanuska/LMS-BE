@@ -1,4 +1,5 @@
 import {
+  deleteBook,
   getAllBooks,
   insertBook,
   updateBook,
@@ -48,6 +49,24 @@ export const adminGetBookDetails = async (req, res, next) => {
   }
 };
 
+export const pubGetBooks = async (req, res, next) => {
+  try {
+    const book = await getAllBooks({
+      status: "active",
+    });
+    res.json({
+      status: "success",
+      message: "Books list",
+      book,
+    });
+  } catch (error) {
+    next({
+      status: 500,
+      message: "Error creating book",
+    });
+  }
+};
+
 //update book detail
 export const updateBookDetails = async (req, res, next) => {
   try {
@@ -65,7 +84,31 @@ export const updateBookDetails = async (req, res, next) => {
     console.log(error);
     next({
       status: 500,
-      message: "book cannot be updated",
+      message: "error updating book",
+    });
+  }
+};
+
+// delete  book
+export const deleteBookController = async (req, res, next) => {
+  try {
+    const _id = req.params._id;
+
+    const deletedBook = await deleteBook(_id);
+
+    deletedBook?._id
+      ? res.json({
+          status: "success",
+          message: "book deleted succesfully",
+        })
+      : next({
+          status: 400,
+          messgae: "book cannot be deleted",
+        });
+  } catch (error) {
+    next({
+      ststus: 500,
+      message: "Error deleting book",
     });
   }
 };

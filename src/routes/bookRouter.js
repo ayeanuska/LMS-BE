@@ -2,6 +2,8 @@ import express from "express";
 import {
   adminGetBookDetails,
   createBook,
+  deleteBookController,
+  pubGetBooks,
   updateBookDetails,
 } from "../controllers/bookControllers.js";
 import { authenticate, isAdmin } from "../middlewares/authMiddleware.js";
@@ -18,10 +20,12 @@ router.post("/", authenticate, createBookValidator, createBook);
 // get api/v1/book  for admin
 router.get("/", authenticate, isAdmin, adminGetBookDetails);
 
+router.get("/pub-books", pubGetBooks);
+
 //update
 router.put("/", authenticate, isAdmin, updateBookValidator, updateBookDetails);
 
-// //delete
-// router.delete("/:id", authenticate, deleteBook);
+//delete
+router.delete("/:id", authenticate, isAdmin, deleteBookController);
 
 export default router;

@@ -12,3 +12,7 @@ export const getAllBooks = (filterObj) => {
 export const updateBook = (_id, ...bookObj) => {
   return bookSchema.findByIdAndUpdate(_id, bookObj);
 };
+
+export const deleteBook = (_id) => {
+  return bookSchema.findByIdAndDelete(_id);
+};
