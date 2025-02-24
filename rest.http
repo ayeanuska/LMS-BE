@@ -8,19 +8,6 @@
 @bookEP= {{rooturl}}/books
 
 
-##create a book 
-POST {{bookEP}}
-Content-Type:application/json
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnbWFpbC5jb20iLCJpYXQiOjE3Mzk4NDkyNTEsImV4cCI6MTczOTkzNTY1MX0.2VDJnM4_jgo5bWl29k_uzYgsmreG7twMHyjD7qs2lf0
-
-{
-    "title":"marley & me",
-    "author": "john groogran",
-    "thumbnail":" http://wallappaer.com/wp/rdYano%.jpg",
-    "isbn":"226",
-    "genre":"autobiograohy",
-    "publishedYear": "2019"
-}
 
 
 
@@ -48,4 +35,47 @@ Content-Type: application/json
 ###
 
 GET {{authEP}}
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnbWFpbC5jb20iLCJpYXQiOjE3Mzk4NDA1ODAsImV4cCI6MTczOTkyNjk4MH0.I_rZV-upuDj3dshuefsp7S6Z7gsFxQ9tyjGXXVs_lOU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnbWFpbC5jb20iLCJpYXQiOjE3NDAzNTkwNjAsImV4cCI6MTc0MDQ0NTQ2MH0.o_1u2_MCqOtbloA0i2eaK34u_ONL4l6H6saaN5Yuhp8
+
+
+###create a book 
+
+POST {{bookEP}}
+Content-Type:application/json
+Authorization:
+{
+    "title":"marley & me",
+    "author": "john groogran",
+    "thumbnail":" http://wallappaer.com/wp/rdYano%.jpg",
+    "isbn":"226",
+    "genre":"autobiograohy",
+    "publishedYear": "2019"
+}
+
+
+###
+
+
+GET {{bookEP}}
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnbWFpbC5jb20iLCJpYXQiOjE3NDAzNTkwNjAsImV4cCI6MTc0MDQ0NTQ2MH0.o_1u2_MCqOtbloA0i2eaK34u_ONL4l6H6saaN5Yuhp8
+
+### update book
+
+PUT {{bookEP}}
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnbWFpbC5jb20iLCJpYXQiOjE3NDAzNTkwNjAsImV4cCI6MTc0MDQ0NTQ2MH0.o_1u2_MCqOtbloA0i2eaK34u_ONL4l6H6saaN5Yuhp8
+Content-Type: application/json
+
+ {
+      "_id": "67b40352eba1b8553f0720ab",
+      "status": "inactive",
+      "title": "marley & me",
+      "author": "john groogran",
+      "thumbnail": " http://wallappaer.com/wp/rdYano%.jpg",
+      "isbn": "226",
+      "genre": "autobiograohy",
+      "publishedYear": "2019",
+      "description": "koi",
+      "isAvailable": true,
+      "expectedAvailable": "true"
+      
+    }
