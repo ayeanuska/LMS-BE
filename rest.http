@@ -26,9 +26,9 @@ Content-Type: application/json
 POST {{authEP}}/register
 Content-Type: application/json
 
-{"fName":"Prash",
+{"fName":"karuna",
 "lName":"Shrestha",
-"email":"prashu@gmail.com",
+"email":"karuna@gmail.com",
 "phone":"0424123",
 "password":"1234"}
 
@@ -83,4 +83,9 @@ Content-Type: application/json
 ###delete book 
 Delete {{bookEP}}/ 67b3fffe911837ea59730340
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnbWFpbC5jb20iLCJpYXQiOjE3NDAzNTkwNjAsImV4cCI6MTc0MDQ0NTQ2MH0.o_1u2_MCqOtbloA0i2eaK34u_ONL4l6H6saaN5Yuhp8 
-Content-Type: application/json
+
+
+
+### renew jwt
+GET {{authEP}}/renew-jwt
+Authorization: 

@@ -1,6 +1,10 @@
-import { CreateNewUser, getUserByEmaiL } from "../models/users/UserModel.js";
+import {
+  CreateNewUser,
+  getUserByEmaiL,
+  updateUser,
+} from "../models/users/UserModel.js";
 import { compareText, encryptText } from "../utils/bcrypt.js";
-import { jwtSign } from "../utils/jwt.js";
+import { jwtSign, refreshjwtSign } from "../utils/jwt.js";
 
 export const login = async (req, res, next) => {
   try {
@@ -15,15 +19,22 @@ export const login = async (req, res, next) => {
         email: userData.email,
       };
 
-      const token = await jwtSign(tokenData, process.env.JWT_SECRET, {
-        expiresIn: "1d",
-      });
+      const token = await jwtSign(tokenData);
+
+      const refreshToken = await refreshjwtSign(tokenData);
+
+      // save the refresh token in the UserData
+      const data = await updateUser(
+        { email: userData.email },
+        { refreshJWt: refreshToken }
+      );
 
       if (loginSuccess) {
         return res.status(200).json({
           status: "success",
           message: " Login succesfull",
           accessToken: token,
+          refreshToken: refreshToken,
           user: {
             _id: userData._id,
             username: userData.username,
@@ -97,5 +108,21 @@ export const getUserDetail = async (req, res, next) => {
     status: "success",
     message: "User Detail",
     user: req.userData,
+  });
+};
+
+export const renewJWT = async (req, res, next) => {
+  //recreate the access token
+
+  const tokenData = {
+    email: req.userData.email,
+  };
+
+  const token = await jwtSign(tokenData);
+
+  return res.status(200).json({
+    status: "success",
+    message: "token refreshed",
+    accessToken: token,
   });
 };
