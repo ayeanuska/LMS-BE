@@ -51,13 +51,13 @@ export const adminGetBookDetails = async (req, res, next) => {
 
 export const pubGetBooks = async (req, res, next) => {
   try {
-    const book = await getAllBooks({
+    const books = await getAllBooks({
       status: "active",
     });
     res.json({
       status: "success",
       message: "Books list",
-      book,
+      books,
     });
   } catch (error) {
     next({

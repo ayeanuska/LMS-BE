@@ -11,15 +11,17 @@
 
 
 
-###
+###y
 GET http://localhost:9002/
 
 ###
 POST {{authEP}}/login
 Content-Type: application/json
 
-{"email":"ayeanuska@gmail.com",
-"password":"1234"}
+{
+    "email":"ayeanuska@gmail.com",
+    "password":"1234"
+}
 
 
 ###
@@ -41,14 +43,15 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBn
 ###create a book 
 
 POST {{bookEP}}
-Content-Type:application/json
-Authorization:
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnbWFpbC5jb20iLCJpYXQiOjE3NDEwNDAwMzksImV4cCI6MTc0MTEyNjQzOX0.0Dh5I7mpCzXrE72rW2Mmx1NST2Cj5zEbpCj122E65LU
+Content-Type: application/json
+
 {
-    "title":"marley & me",
-    "author": "john groogran",
+    "title":"Building Second Brain",
+    "author": "A SRead",
     "thumbnail":" http://wallappaer.com/wp/rdYano%.jpg",
-    "isbn":"226",
-    "genre":"autobiograohy",
+    "isbn":"205",
+    "genre":"Vocational",
     "publishedYear": "2019"
 }
 
@@ -57,7 +60,7 @@ Authorization:
 
 
 GET {{bookEP}}
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnbWFpbC5jb20iLCJpYXQiOjE3NDAzNTkwNjAsImV4cCI6MTc0MDQ0NTQ2MH0.o_1u2_MCqOtbloA0i2eaK34u_ONL4l6H6saaN5Yuhp8
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnbWFpbC5jb20iLCJpYXQiOjE3NDA5NzM2NDMsImV4cCI6MTc0MDk3MzY3M30.1Jc_3nr6Xxn0OxgJVH_tUNcXwI21pUwxEAR-fXlY9C4
 
 ### update book
 
@@ -80,8 +83,11 @@ Content-Type: application/json
       
     }
 
+### pub books
+GET {{bookEP}}/pub-books    
+
 ###delete book 
-Delete {{bookEP}}/ 67b3fffe911837ea59730340
+Delete {{bookEP}}/67b3fffe911837ea59730340
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnbWFpbC5jb20iLCJpYXQiOjE3NDAzNTkwNjAsImV4cCI6MTc0MDQ0NTQ2MH0.o_1u2_MCqOtbloA0i2eaK34u_ONL4l6H6saaN5Yuhp8 
 
 
