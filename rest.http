@@ -47,10 +47,10 @@ Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnb
 Content-Type: application/json
 
 {
-    "title":"Building Second Brain",
+    "title":"Second Brain",
     "author": "A SRead",
     "thumbnail":" http://wallappaer.com/wp/rdYano%.jpg",
-    "isbn":"205",
+    "isbn":"222",
     "genre":"Vocational",
     "publishedYear": "2019"
 }

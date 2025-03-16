@@ -17,9 +17,10 @@ const router = express.Router();
 //post api/v1/book
 router.post("/", authenticate, createBookValidator, createBook);
 
-// get api/v1/book  for admin
+// get api/v1/book  for admin crud page
 router.get("/", authenticate, isAdmin, adminGetBookDetails);
 
+//home page
 router.get("/pub-books", pubGetBooks);
 
 //update

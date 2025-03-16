@@ -3,8 +3,12 @@ import cors from "cors";
 import { connectMongoDB } from "./src/config/mongoConfig.js";
 import morgan from "morgan";
 import { errorHandler } from "./src/middlewares/errorHandler.js";
+
+
+//router
 import authRouter from "./src/routes/authRouter.js";
 import bookRouter from "./src/routes/bookRouter.js";
+import borrowRouter from "./src/routes/borrowRouter.js";
 
 //for req.body
 const app = express();
@@ -35,6 +39,9 @@ app.use("/api/v1/auth", authRouter);
 
 //book route
 app.use("/api/v1/books", bookRouter);
+
+//borrow route
+app.use("/api/v1/borrows", borrowRouter);
 
 //error handler
 app.use(errorHandler);

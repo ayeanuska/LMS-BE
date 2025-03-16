@@ -30,15 +30,15 @@ export const login = async (req, res, next) => {
       );
 
       if (loginSuccess) {
+        userData.password = "";
+        userData.refreshJWT = "";
+
         return res.status(200).json({
           status: "success",
           message: " Login succesfull",
           accessToken: token,
           refreshToken: refreshToken,
-          user: {
-            _id: userData._id,
-            username: userData.username,
-          },
+          user: userData,
         });
       } else {
         next({
