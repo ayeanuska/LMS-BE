@@ -35,11 +35,12 @@ export const registerValidator = (req, res, next) => {
 export const createBookValidator = (req, res, next) => {
   const createBookSchema = Joi.object({
     title: Joi.string().required(),
+    description: Joi.string(),
     author: Joi.string().required(),
     thumbnail: Joi.string().required(),
     isbn: Joi.string().required(),
     genre: Joi.string().required(),
-    publishedYear: Joi.number().required(),
+    publishedYear: Joi.string(),
   });
   joiValidator(createBookSchema, req, res, next);
 };

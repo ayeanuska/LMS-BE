@@ -4,7 +4,6 @@ import { connectMongoDB } from "./src/config/mongoConfig.js";
 import morgan from "morgan";
 import { errorHandler } from "./src/middlewares/errorHandler.js";
 
-
 //router
 import authRouter from "./src/routes/authRouter.js";
 import bookRouter from "./src/routes/bookRouter.js";

@@ -7,6 +7,9 @@
 ## book ep 
 @bookEP= {{rooturl}}/books
 
+## boorow EP
+@borrowEP={{rooturl}}/borrows
+
 
 
 
@@ -34,7 +37,7 @@ Content-Type: application/json
 "phone":"0424123",
 "password":"1234"}
 
-###
+### get user data
 
 GET {{authEP}}
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnbWFpbC5jb20iLCJpYXQiOjE3NDAzNTkwNjAsImV4cCI6MTc0MDQ0NTQ2MH0.o_1u2_MCqOtbloA0i2eaK34u_ONL4l6H6saaN5Yuhp8
@@ -56,13 +59,20 @@ Content-Type: application/json
 }
 
 
-###
+###get all book - admin
 
 
 GET {{bookEP}}
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnbWFpbC5jb20iLCJpYXQiOjE3NDA5NzM2NDMsImV4cCI6MTc0MDk3MzY3M30.1Jc_3nr6Xxn0OxgJVH_tUNcXwI21pUwxEAR-fXlY9C4
 
-### update book
+### pub books for public
+GET {{bookEP}}/pub-books   
+
+###get book detail
+
+GET {{bookEP}}/:id
+
+### update the entire book
 
 PUT {{bookEP}}
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnbWFpbC5jb20iLCJpYXQiOjE3NDAzNTkwNjAsImV4cCI6MTc0MDQ0NTQ2MH0.o_1u2_MCqOtbloA0i2eaK34u_ONL4l6H6saaN5Yuhp8
@@ -83,8 +93,6 @@ Content-Type: application/json
       
     }
 
-### pub books
-GET {{bookEP}}/pub-books    
 
 ###delete book 
 Delete {{bookEP}}/67b3fffe911837ea59730340
@@ -95,3 +103,18 @@ Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnb
 ### renew jwt
 GET {{authEP}}/renew-jwt
 Authorization: 
+
+
+///borrow
+
+###create borrow hisyory
+
+POST {{borrowEP}}
+Authorization: 
+Content-Type: application/json
+
+{
+    "bookId":"",
+    "title": "html beginners",
+    "thumbnail":"http://localhost:5174/assets/book4.jpg"
+    }
