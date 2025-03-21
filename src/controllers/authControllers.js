@@ -1,3 +1,4 @@
+import { request } from "express";
 import {
   CreateNewUser,
   getUserByEmaiL,
@@ -62,6 +63,7 @@ export const login = async (req, res, next) => {
 };
 
 export const register = async (req, res, next) => {
+  console.log(req);
   try {
     //   const newUser = new User(req.body);
 

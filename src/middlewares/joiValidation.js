@@ -27,6 +27,7 @@ export const registerValidator = (req, res, next) => {
     phone: Joi.string(),
     email: Joi.string().email({ minDomainSegments: 2 }),
     password: Joi.string(),
+    confirmPassword: Joi.string(),
   });
   joiValidator(registerSchema, req, res, next);
 };

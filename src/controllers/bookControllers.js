@@ -92,9 +92,10 @@ export const updateBookDetails = async (req, res, next) => {
 // delete  book
 export const deleteBookController = async (req, res, next) => {
   try {
-    const _id = req.params._id;
+    console.log(22222, req.params);
+    const id = req.params.id;
 
-    const deletedBook = await deleteBook(_id);
+    const deletedBook = await deleteBook(id);
 
     deletedBook?._id
       ? res.json({
