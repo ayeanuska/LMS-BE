@@ -4,7 +4,7 @@ const BorrowSchema = new mongoose.Schema(
   {
     userId: { type: mongoose.Types.ObjectId, ref: "User", required: true },
     //comes from payload
-    bookId: { type: mongoose.Types.ObjectId, ref: "Bokok", required: true },
+    bookId: { type: mongoose.Types.ObjectId, ref: "Book", required: true },
     borrowDate: {
       type: Date,
       default: Date.now(),
@@ -23,4 +23,4 @@ const BorrowSchema = new mongoose.Schema(
   }
 );
 
-export default BorrowSchema;
+export default mongoose.model("borrow", BorrowSchema);

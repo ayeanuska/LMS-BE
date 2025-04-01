@@ -25,7 +25,7 @@ router.post("/login", loginValidator, login);
 router.post("/register", registerValidator, register);
 
 // get
-// router.get("/", authenticate, getUserDetail);
+router.get("/", authenticate, getUserDetail);
 
 //reenew jwt
 router.get("/renew-jwt", refreshAuthenticate, renewJWT);

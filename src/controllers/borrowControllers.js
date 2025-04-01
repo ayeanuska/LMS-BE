@@ -57,9 +57,7 @@ export const fetchBorrow = async (req, res, next) => {
     // 2. get borrow history of the particular user
     const borrows = await getBorrowsByUserId(userId);
 
-    return res
-      .status(200)
-      .json({ status: "success", message: "borrow found", borrows });
+    return res.status(200).json({ status: "success", message: "borrow found", borrows });
   } catch (error) {
     console.log(error.message);
 

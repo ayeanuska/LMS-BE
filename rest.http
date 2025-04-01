@@ -22,7 +22,7 @@ POST {{authEP}}/login
 Content-Type: application/json
 
 {
-    "email":"ayeanuska@gmail.com",
+    "email":"anu@gmail.com",
     "password":"1234"
 }
 
@@ -31,9 +31,9 @@ Content-Type: application/json
 POST {{authEP}}/register
 Content-Type: application/json
 
-{"fName":"karuna",
+{"fName":"anuska",
 "lName":"Shrestha",
-"email":"karuna@gmail.com",
+"email":"anu@gmail.com",
 "phone":"0424123",
 "password":"1234"}
 
@@ -46,15 +46,15 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBn
 ###create a book 
 
 POST {{bookEP}}
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZWFudXNrYUBnbWFpbC5jb20iLCJpYXQiOjE3NDEwNDAwMzksImV4cCI6MTc0MTEyNjQzOX0.0Dh5I7mpCzXrE72rW2Mmx1NST2Cj5zEbpCj122E65LU
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJpYXQiOjE3NDM0ODA2NDAsImV4cCI6MTc0MzU2NzA0MH0.4ipTq9RQnxAZlVFXVJKV6U8smoIr2M_v8XF2kWAYFhw
 Content-Type: application/json
 
 {
-    "title":"Second Brain",
-    "author": "A SRead",
+    "title":"harrypotter ",
+    "author": "JOhn Grogan",
     "thumbnail":" http://wallappaer.com/wp/rdYano%.jpg",
-    "isbn":"222",
-    "genre":"Vocational",
+    "isbn":"20",
+    "genre":"supernatural",
     "publishedYear": "2019"
 }
 

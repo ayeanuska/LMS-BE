@@ -14,6 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 9002;
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
 
 //log middle ware
 
@@ -27,11 +28,11 @@ if (process.env.NODE_ENV !== "production") {
 app.use(cors());
 
 //route
-app.get("/", (req, res) => {
-  res.json({
-    message: "its live",
-  });
-});
+// app.get("/", (req, res) => {
+//   res.json({
+//     message: "its live",
+//   });
+// });
 
 //auth route
 app.use("/api/v1/auth", authRouter);

@@ -6,13 +6,13 @@ export const insertBorrow = (borrowObj) => {
 };
 
 // get all borrow
-export const getBorrows = () => {
+export const getBorrows = (borrowObj) => {
   return BorrowSchema.find(borrowObj);
 };
 
 //get borrow by id
 export const getBorrowsByUserId = (userId) => {
-  return BorrowSchema.find({ userId });
+  return BorrowSchema.find(userId );
 };
 
 //update borrow
