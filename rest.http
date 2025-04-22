@@ -5,6 +5,8 @@
 @bookEP= {{rooturl}}/books
 ## boorow EP
 @borrowEP={{rooturl}}/borrows
+##review EP
+@reviewEP={{rooturl}}/review
 
 
 
@@ -45,7 +47,7 @@ Content-Type: application/json
     "title":"Pride and Prejudice",
     "author": "Jane Austen, Anna Quindlen",
     "thumbnail":"https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1320399351i/1885.jpg",
-    "isbn":"1003",
+    "isbn":"10",
     "genre":"Historical Fiction",
     "publishedYear": "1893"
 }
@@ -64,7 +66,8 @@ GET {{bookEP}}/pub-books
 
 ###get book detail
 
-GET {{bookEP}}/:id
+GET {{bookEP}}/:id,
+
 
 ### update the entire book
 
@@ -102,13 +105,34 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5j
 ///borrow
 
 ###create borrow history
-
 POST {{borrowEP}}
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJfaWQiOiI2N2ViNjczMDBkN2Q0MzQ0MjhlODk3M2IiLCJpYXQiOjE3NDUzMjcwNDcsImV4cCI6MTc0NTQxMzQ0N30.UIk1wPXvOOPewzQcIHROj1Or30QyHqphuuIUcIURLYM
+Content-Type: application/json
+
+{
+    "userId":"67eb67300d7d434428e8973b",
+    "bookId":"6807735ca2f3817bf01c6208",
+    "dueDate":"2025-05-15",
+    "title":"Pride and Prejudice",
+    "thumbnail":"https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1320399351i/1885.jpg"
+} 
+
+
+    //review
+### creating review
+POST {{reviewEP}}
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzMTc4MTMsImV4cCI6MTc0NTQwNDIxM30.f0UlNbCso3ZylAw70BiMK4Ls8OfWH8TebKzWJXngXJY
 Content-Type: application/json
 
 {
-    "bookId":"6807735ca2f3817bf01c6208",
-    "title": "Pride and Prejudice",
-    "thumbnail":"https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1320399351i/1885.jpg"
-    } 
+    "heading":"Amazing Read",
+    "userId":"",
+    "status":"inactive",
+    "thumbnail":"abracadabra",
+    "title":"Pride and Prejudice",
+    "ratings":10,
+    "message":"Amazing read , one must read",
+    "bookId":"68077a71a0fe5ac44a3af782",
+    "borrowId":"",
+    "userName":""
+}

@@ -18,6 +18,7 @@ export const login = async (req, res, next) => {
 
       const tokenData = {
         email: userData.email,
+        _id: userData._id,
       };
 
       const token = await jwtSign(tokenData);

@@ -30,7 +30,7 @@ const BorrowSchema = new mongoose.Schema(
     },
   },
   {
-    timeStamp: true,
+    timestamps: true,
   }
 );
 

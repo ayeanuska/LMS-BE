@@ -8,7 +8,6 @@ export const authenticate = async (req, res, next) => {
     //1.get the token
     const token = req.headers.authorization;
 
-
     // 1.1 find the header token from database
     const tokenFromDb = await findToken(token);
 
