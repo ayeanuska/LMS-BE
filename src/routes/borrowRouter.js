@@ -11,7 +11,7 @@ router.post("/", authenticate, insertBorrow);
 //fetch borrow list
 router.get("/", authenticate, fetchBorrow);
 
-//update boorow- return book
+//update borrow- return book
 router.put("/", authenticate, returnBorrow);
 
 export default router;
