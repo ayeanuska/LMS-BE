@@ -13,6 +13,7 @@ const sessionSchema = new mongoose.Schema(
 );
 
 const SessionSchema = mongoose.model("Session", sessionSchema);
+export default SessionSchema;
 
 export const insertToken = (obj) => {
   return SessionSchema(obj).save();
