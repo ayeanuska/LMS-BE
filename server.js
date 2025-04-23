@@ -8,13 +8,14 @@ import { errorHandler } from "./src/middlewares/errorHandler.js";
 import authRouter from "./src/routes/authRouter.js";
 import bookRouter from "./src/routes/bookRouter.js";
 import borrowRouter from "./src/routes/borrowRouter.js";
+import usersRoute from "./src/routes/usersRouter.js";
 
 //for req.body
 const app = express();
 const PORT = process.env.PORT || 9002;
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }));
 
 //log middle ware
 
@@ -37,6 +38,8 @@ app.use(cors());
 //auth route
 app.use("/api/v1/auth", authRouter);
 
+//user route
+app.use("/api/v1/users", usersRoute);
 //book route
 app.use("/api/v1/books", bookRouter);
 

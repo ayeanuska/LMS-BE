@@ -12,7 +12,6 @@ export const authenticate = async (req, res, next) => {
     const tokenFromDb = await findToken(token);
 
     //2. verify the token
-    console.log(token);
 
     const decodedData = await jwtVerify(tokenFromDb.token);
 
@@ -22,11 +21,11 @@ export const authenticate = async (req, res, next) => {
       console.log(decodedData);
       //3. find the user from decoded data
       const userData = await getUserByEmaiL(decodedData.email);
-      console.log(333, userData);
+
       //3.2 add user data to request
       if (userData) {
         req.userData = userData;
-        console.log(222, req.userData);
+
         //4. go to next process
         next();
       } else {

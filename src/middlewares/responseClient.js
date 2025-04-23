@@ -1,4 +1,4 @@
-export const responseClient = ({ req, rs, message, statusCode = 200 }) => {
+export const responseClient = ({ req, res, message, statusCode = 200 }) => {
   //success response
 
   req.sucess = () => {
@@ -19,6 +19,6 @@ export const responseClient = ({ req, rs, message, statusCode = 200 }) => {
   if (statusCode >= 200 && statusCode < 300) {
     req.success();
   } else {
-    return req.console.error();
+    return req.error();
   }
 };

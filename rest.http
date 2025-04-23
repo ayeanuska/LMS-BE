@@ -37,6 +37,12 @@ GET {{authEP}}
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzMTc4MTMsImV4cCI6MTc0NTQwNDIxM30.f0UlNbCso3ZylAw70BiMK4Ls8OfWH8TebKzWJXngXJY
 
 
+###get user profile
+GET  {{rooturl}}/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJfaWQiOiI2N2ViNjczMDBkN2Q0MzQ0MjhlODk3M2IiLCJpYXQiOjE3NDUzNjYyOTAsImV4cCI6MTc0NTQ1MjY5MH0.ZZ16HQBGO8_5revk4kiwyIopgwaTfDlJpBkiOdM6Nf4
+
+
+
 ###create a book 
 
 POST {{bookEP}}
