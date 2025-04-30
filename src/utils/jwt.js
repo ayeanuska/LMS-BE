@@ -11,17 +11,20 @@ export const jwtSign = (signData) => {
 };
 
 export const jwtVerify = (token) => {
-  console.log(10000, token);
-  return jwt.verify(token, process.env.JWT_SECRET);
+  try {
+    return jwt.verify(token, process.env.JWT_SECRET);
+  } catch (error) {
+    console.log("jwtVerify error", error);
+    return null;
+  }
 };
 
 export const refreshjwtSign = (signData) => {
-  return jwt.sign(signData, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRESIN,
+  return jwt.sign(signData, process.env.JWT_REFRESH_SECRET, {
+    expiresIn: process.env.JWT_REFRESH_EXPIRESIN,
   });
 };
 
 export const refreshjwtVerify = (token) => {
-  console.log(10000, token);
-  return jwt.verify(token, process.env.JWT_SECRET);
+  return jwt.verify(token, process.env.JWT_REFRESH_SECRET);
 };
