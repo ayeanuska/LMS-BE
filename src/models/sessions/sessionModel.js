@@ -12,3 +12,11 @@ export const deleteSession = (filter) => {
 export const getSession = (filter) => {
   return SessionSchema.findOne(filter);
 };
+
+export const insertToken = (obj) => {
+  return SessionSchema(obj).save();
+};
+
+export const findToken = (token) => {
+  return SessionSchema.findOne({ token });
+};

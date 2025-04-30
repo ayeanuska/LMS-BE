@@ -70,7 +70,7 @@ export const pubGetBooks = async (req, res, next) => {
 //update book detail
 export const updateBookDetails = async (req, res, next) => {
   try {
-    const book = await updateBook();
+    const book = await updateBook(req.body);
     book?._id
       ? res.json({
           status: "success",

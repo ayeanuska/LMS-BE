@@ -10,7 +10,7 @@ export const responseClient = ({ req, res, message, statusCode = 200 }) => {
 
   //error message
   req.error = () => {
-    req.status(statusCode).json({
+    return res.status(statusCode).json({
       status: "error",
       message,
     });

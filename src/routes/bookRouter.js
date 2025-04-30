@@ -24,7 +24,13 @@ router.get("/", authenticate, isAdmin, adminGetBookDetails);
 router.get("/pub-books", pubGetBooks);
 
 //update
-router.put("/", authenticate, isAdmin, updateBookValidator, updateBookDetails);
+router.put(
+  "/:id",
+  authenticate,
+  isAdmin,
+  updateBookValidator,
+  updateBookDetails
+);
 
 //delete
 router.delete("/:id", authenticate, isAdmin, deleteBookController);

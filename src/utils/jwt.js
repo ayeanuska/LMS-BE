@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { insertToken } from "../models/sessions/sessionSchema.js";
+import { insertToken } from "../models/sessions/sessionModel.js";
 
 export const jwtSign = (signData) => {
   const token = jwt.sign(signData, process.env.JWT_SECRET, {

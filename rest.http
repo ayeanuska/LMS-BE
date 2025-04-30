@@ -25,9 +25,9 @@ Content-Type: application/json
 POST {{authEP}}/register
 Content-Type: application/json
 
-{"fName":"Arjin",
+{"fName":"Anuska",
 "lName":"Shrestha",
-"email":"arz@gmail.com",
+"email":"anu@gmail.com",
 "phone":"0424123",
 "password":"1234"}
 
@@ -39,14 +39,11 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5j
 
 ###get user profile
 GET  {{rooturl}}/users/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJfaWQiOiI2N2ViNjczMDBkN2Q0MzQ0MjhlODk3M2IiLCJpYXQiOjE3NDUzNjYyOTAsImV4cCI6MTc0NTQ1MjY5MH0.ZZ16HQBGO8_5revk4kiwyIopgwaTfDlJpBkiOdM6Nf4
-
-
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJfaWQiOiI2N2ViNjczMDBkN2Q0MzQ0MjhlODk3M2IiLCJpYXQiOjE3NDU5MDYzMzYsImV4cCI6MTc0NTk5MjczNn0.4TaxA7KbPX2lPPkwK_gzomY5kklvPw1OX1Evj49-TTc
 ###create a book 
 
 POST {{bookEP}}
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzMTc4MTMsImV4cCI6MTc0NTQwNDIxM30.f0UlNbCso3ZylAw70BiMK4Ls8OfWH8TebKzWJXngXJY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzMTc4MTMsImV4cCI6MTc0NTQwNDIxM30.f0UlNbCso3ZylAw70BiMK4Ls8OfWH8TebKzWJXngXJY
 Content-Type: application/json
 
 {
@@ -63,8 +60,7 @@ Content-Type: application/json
 
 
 GET {{bookEP}}
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzMTc4MTMsImV4cCI6MTc0NTQwNDIxM30.f0UlNbCso3ZylAw70BiMK4Ls8OfWH8TebKzWJXngXJY
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJfaWQiOiI2ODEwN2RhNzI1NzUzYjAzNTE3YzkyZDciLCJpYXQiOjE3NDYwMDUzMDksImV4cCI6MTc0NjA5MTcwOX0._hFdaD3FZBu9ce4mHtir2_08uAPg2BONzahXYmcHlLQ
 ### pub books for public
 GET {{bookEP}}/pub-books   
 
@@ -77,8 +73,8 @@ GET {{bookEP}}/:id,
 
 ### update the entire book
 
-PUT {{bookEP}}
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzMTc4MTMsImV4cCI6MTc0NTQwNDIxM30.f0UlNbCso3ZylAw70BiMK4Ls8OfWH8TebKzWJXngXJY
+PUT {{bookEP}}/67f313c7308efe6960543700
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJfaWQiOiI2ODEwN2RhNzI1NzUzYjAzNTE3YzkyZDciLCJpYXQiOjE3NDYwMDUzMDksImV4cCI6MTc0NjA5MTcwOX0._hFdaD3FZBu9ce4mHtir2_08uAPg2BONzahXYmcHlLQ
 Content-Type: application/json
 
  {

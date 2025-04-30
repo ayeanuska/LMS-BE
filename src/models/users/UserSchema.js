@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  status: { type: String, default: "inactive" },
   role: { type: String, enum: ["admin", "student"], default: "student" },
 
   phone: {

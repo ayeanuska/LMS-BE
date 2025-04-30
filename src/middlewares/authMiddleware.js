@@ -1,15 +1,27 @@
-import { findToken } from "../models/sessions/sessionSchema.js";
+import { findToken, getSession } from "../models/sessions/sessionModel.js";
 import { getUserByEmaiL } from "../models/users/UserModel.js";
 import { jwtVerify, refreshjwtVerify } from "../utils/jwt.js";
 
 export const authenticate = async (req, res, next) => {
   try {
-    console.log(101, req.headers);
     //1.get the token
-    const token = req.headers.authorization;
+    const token = req.headers.authorization?.split(" ")[1];
+    if (!token) {
+      return next({
+        statusCode: 401,
+        message: "Unauthorized: No token provided",
+      });
+    }
 
     // 1.1 find the header token from database
     const tokenFromDb = await findToken(token);
+
+    if (!tokenFromDb) {
+      return next({
+        statusCode: 401,
+        message: "Unauthorized: Token not found",
+      });
+    }
 
     //2. verify the token
 
@@ -103,3 +115,6 @@ export const isAdmin = async (req, res, next) => {
         message: "not authorized,",
       });
 };
+
+// //same to authenticate above just a alternative.
+// export const userAuthMiddleware = async (req, res, next) => {};
