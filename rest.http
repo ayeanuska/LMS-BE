@@ -74,7 +74,7 @@ GET {{bookEP}}/:id,
 ### update the entire book
 
 PUT {{bookEP}}/67f313c7308efe6960543700
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJfaWQiOiI2ODEwN2RhNzI1NzUzYjAzNTE3YzkyZDciLCJpYXQiOjE3NDYwMDUzMDksImV4cCI6MTc0NjA5MTcwOX0._hFdaD3FZBu9ce4mHtir2_08uAPg2BONzahXYmcHlLQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJfaWQiOiI2ODEwN2RhNzI1NzUzYjAzNTE3YzkyZDciLCJpYXQiOjE3NDYxNjEwMDUsImV4cCI6MTc0NjI0NzQwNX0.jb3SS_eEzfnJpmBIoCa5Y4Xkkb6MSGLjzhAZwFB4_xU
 Content-Type: application/json
 
  {
@@ -86,7 +86,7 @@ Content-Type: application/json
       "isbn": "234",
       "genre": "autobiograohy",
       "publishedYear": "2019",
-      "description": "koi",
+      "description": "this is ok",
       "isAvailable": true,
       "expectedAvailable": "true"
       

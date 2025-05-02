@@ -1,3 +1,4 @@
+import { log } from "console";
 import { findToken, getSession } from "../models/sessions/sessionModel.js";
 import { getUserByEmaiL } from "../models/users/UserModel.js";
 import { jwtVerify, refreshjwtVerify } from "../utils/jwt.js";
@@ -5,7 +6,12 @@ import { jwtVerify, refreshjwtVerify } from "../utils/jwt.js";
 export const authenticate = async (req, res, next) => {
   try {
     //1.get the token
+    console.log("headers", req.headers);
+
+    console.log("Authorization header:", req.headers.authorization);
+
     const token = req.headers.authorization?.split(" ")[1];
+    console.log("extracted token", token);
     if (!token) {
       return next({
         statusCode: 401,
@@ -30,7 +36,7 @@ export const authenticate = async (req, res, next) => {
     console.log("DECODED DATA", decodedData);
 
     if (decodedData?.email) {
-      console.log(decodedData);
+      // console.log(decodedData);
       //3. find the user from decoded data
       const userData = await getUserByEmaiL(decodedData.email);
 

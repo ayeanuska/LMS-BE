@@ -10,7 +10,7 @@ export const createBorrow = async (req, res, next) => {
     const userId = req.userData._id;
 
     const { bookId, title, thumbnail } = req.body;
-    console.log("reciverd body:", req.body);
+    // console.log("received body:", req.body);
 
     // setting due time 15 days
 

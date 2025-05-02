@@ -13,8 +13,8 @@ export const getSession = (filter) => {
   return SessionSchema.findOne(filter);
 };
 
-export const insertToken = (obj) => {
-  return SessionSchema(obj).save();
+export const insertToken = async (obj) => {
+  return await SessionSchema(obj).save();
 };
 
 export const findToken = (token) => {

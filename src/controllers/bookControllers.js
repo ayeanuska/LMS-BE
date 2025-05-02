@@ -70,7 +70,13 @@ export const pubGetBooks = async (req, res, next) => {
 //update book detail
 export const updateBookDetails = async (req, res, next) => {
   try {
-    const book = await updateBook(req.body);
+    const book = await updateBook(req.params.id, req.body);
+    const updatedData = req.body;
+
+    if (!updatedData) {
+      throw new Error("No data to update");
+    }
+
     book?._id
       ? res.json({
           status: "success",
@@ -92,7 +98,7 @@ export const updateBookDetails = async (req, res, next) => {
 // delete  book
 export const deleteBookController = async (req, res, next) => {
   try {
-    console.log(22222, req.params);
+    // console.log(22222, req.params);
     const id = req.params.id;
 
     const deletedBook = await deleteBook(id);
