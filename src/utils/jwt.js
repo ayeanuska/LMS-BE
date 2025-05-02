@@ -1,12 +1,12 @@
 import jwt from "jsonwebtoken";
 import { insertToken } from "../models/sessions/sessionModel.js";
 
-export const jwtSign = (signData) => {
+export const jwtSign = async (signData) => {
   const token = jwt.sign(signData, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRESIN,
   });
 
-  insertToken({ token });
+  await insertToken({ token });
   return token;
 };
 
@@ -26,5 +26,10 @@ export const refreshjwtSign = (signData) => {
 };
 
 export const refreshjwtVerify = (token) => {
-  return jwt.verify(token, process.env.JWT_REFRESH_SECRET);
+  try {
+    return jwt.verify(token, process.env.JWT_REFRESH_SECRET);
+  } catch (error) {
+    console.log("refreshjwtVerify error", error);
+    return null;
+  }
 };
