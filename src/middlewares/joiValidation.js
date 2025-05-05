@@ -1,4 +1,6 @@
 import Joi from "joi";
+//server side validation: technique to validate data (from client)before it is sent to the server
+//verify the datta type, check if any maliciaous data is sent to the server
 
 const joiValidator = (schema, req, res, next) => {
   const { error } = schema.validate(req.body);
@@ -45,7 +47,7 @@ export const createBookValidator = (req, res, next) => {
   joiValidator(createBookSchema, req, res, next);
 };
 
-// create book validator
+// update book validator
 export const updateBookValidator = (req, res, next) => {
   const updateBookSchema = Joi.object({
     title: Joi.string().required(),
@@ -55,7 +57,19 @@ export const updateBookValidator = (req, res, next) => {
     genre: Joi.string().required(),
     description: Joi.string().required(),
     publishedYear: Joi.number().required(),
-    availabiliy: Joi.boolean(),
+    isAvailable: Joi.boolean(),
+    expectedAvailable: Joi.string().allow("", null),
+    averageRating: Joi.number(),
   });
   joiValidator(updateBookSchema, req, res, next);
+};
+
+//book validator
+export const borrowBookValidator = (req, res, next) => {
+  const borrowBookSchema = Joi.object({
+    bookId: Joi.string().required(),
+    title: Joi.string().required().label("Title"),
+    thumbnail: Joi.string().uri().required(),
+  });
+  joiValidator(borrowBookSchema, req, res, next);
 };
