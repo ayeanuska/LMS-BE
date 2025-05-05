@@ -1,6 +1,7 @@
 import {
   deleteBook,
   getAllBooks,
+  getSingleBook,
   insertBook,
   updateBook,
 } from "../models/books/bookModel.js";
@@ -49,20 +50,45 @@ export const adminGetBookDetails = async (req, res, next) => {
   }
 };
 
+export const singleBookController = async (req, res, next) => {
+  const id = req.params.id;
+  try {
+    const singleBook = await getSingleBook(id);
+
+    singleBook?._id
+      ? res.json({
+          status: "success",
+          message: "book fetched successfully",
+        })
+      : next({
+          status: 400,
+          messgae: "book cannot be fetched",
+        });
+  } catch (error) {
+    next({
+      ststus: 500,
+      message: "Error fetching book",
+    });
+  }
+};
+
 export const pubGetBooks = async (req, res, next) => {
   try {
     const books = await getAllBooks({
       status: "active",
     });
+
     res.json({
       status: "success",
       message: "Books list",
       books,
     });
   } catch (error) {
+    console.log(error, "-----");
+
     next({
       status: 500,
-      message: "Error creating book",
+      message: "Error finding book",
     });
   }
 };

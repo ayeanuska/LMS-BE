@@ -1,5 +1,5 @@
 import { log } from "console";
-import { updateBook } from "../models/books/BookModel.js";
+import { updateBook } from "../models/books/bookModel.js";
 import {
   getBorrowsByUserId,
   insertBorrow,

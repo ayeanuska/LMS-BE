@@ -15,7 +15,6 @@ router.get("/profile", async (req, res, next) => {
 
     // check if acces jwt is valid
     const decoded = await jwtVerify(token);
-    console.log(decoded);
 
     if (decoded.email) {
       //session if access tokem exist in session table

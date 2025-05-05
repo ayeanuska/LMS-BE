@@ -9,11 +9,13 @@ export const getAllBooks = (filterObj) => {
   return bookSchema.find(filterObj);
 };
 
+export const getSingleBook = (_id) => {
+  return bookSchema.findById(_id);
+};
 export const updateBook = (_id, bookObj) => {
   if ("_id" in bookObj) {
     delete bookObj._Id;
   }
-  console.log("Updated book", bookObj);
   return bookSchema.findByIdAndUpdate(_id, bookObj, { new: true });
 };
 
