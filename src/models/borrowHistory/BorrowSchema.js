@@ -28,6 +28,10 @@ const BorrowSchema = new mongoose.Schema(
       enum: ["borrowed", "returned"],
       default: "borrowed",
     },
+    thumbnail: {
+      type: "string",
+      required: true,
+    },
   },
   {
     timestamps: true,

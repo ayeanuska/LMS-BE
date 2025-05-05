@@ -1,5 +1,4 @@
-import { log } from "console";
-import { updateBook } from "../models/books/bookModel.js";
+import { updateBook } from "../models/books/BookModel.js";
 import {
   getBorrowsByUserId,
   insertBorrow,
@@ -7,14 +6,15 @@ import {
 
 export const createBorrow = async (req, res, next) => {
   try {
-    const userId = req.userData._id;
+    console.log("requestbooobody", rew.body);
+    console.log("useriddddd", req.userData._id);
+
+    const userId = req.userData._id; //from authenticated user session
 
     const { bookId, title, thumbnail } = req.body;
-    // console.log("received body:", req.body);
 
-    // setting due time 15 days
-
-    const BURROWINGDAYS = 15;
+    // setting due time 30 days
+    const BURROWINGDAYS = 30;
 
     const dueDate = new Date();
     dueDate.setDate(dueDate.getDate() + BURROWINGDAYS);
@@ -26,10 +26,10 @@ export const createBorrow = async (req, res, next) => {
       title,
       thumbnail,
     };
-    console.log("final burroow obj", borrowObject);
-    const data = await insertBorrow(borrowObject);
 
-    if (data) {
+    const borrowData = await insertBorrow(borrowObject);
+
+    if (borrowData) {
       //borrow succesfully created
 
       const bookData = await updateBook(bookId, {
@@ -40,7 +40,7 @@ export const createBorrow = async (req, res, next) => {
 
     return res
       .status(201)
-      .json({ status: "success", message: "borrow created", data });
+      .json({ status: "success", message: "borrow created", data: borrowData });
   } catch (error) {
     next({
       statusCode: 400,
@@ -53,7 +53,6 @@ export const fetchBorrow = async (req, res, next) => {
   try {
     // 1. get user Id
     const userId = req.userData._id;
-    console.log(req.userData.fName);
 
     // 2. get borrow history of the particular user
     const borrows = await getBorrowsByUserId(userId);
