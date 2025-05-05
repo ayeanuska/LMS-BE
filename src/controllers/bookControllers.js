@@ -3,7 +3,7 @@ import {
   getAllBooks,
   insertBook,
   updateBook,
-} from "../models/books/BookModel.js";
+} from "../models/books/bookModel.js";
 
 export const createBook = async (req, res, next) => {
   try {
