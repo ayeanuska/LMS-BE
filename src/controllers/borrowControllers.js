@@ -6,9 +6,6 @@ import {
 
 export const createBorrow = async (req, res, next) => {
   try {
-    console.log("requestbooobody", rew.body);
-    console.log("useriddddd", req.userData._id);
-
     const userId = req.userData._id; //from authenticated user session
 
     const { bookId, title, thumbnail } = req.body;

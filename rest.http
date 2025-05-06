@@ -108,15 +108,15 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5j
 
 ###create borrow history
 POST {{borrowEP}}
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJfaWQiOiI2ODEwN2RhNzI1NzUzYjAzNTE3YzkyZDciLCJpYXQiOjE3NDY0NTA2MjYsImV4cCI6MTc0NjUzNzAyNn0.xcDi_5z32GZhO-feoQYjySs5Jh3DqNKYZoVnOPCFivM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJfaWQiOiI2ODEwN2RhNzI1NzUzYjAzNTE3YzkyZDciLCJpYXQiOjE3NDY1MzgzMjYsImV4cCI6MTc0NjYyNDcyNn0.ezzSEjqHEbL917jO4vEL96LHkr5SRUNQmdJComTs02s
 Content-Type: application/json
 
 {
-    "userId":"68106e4225753b0351618bb2",
+
     "bookId":"6807634588aa01444198f5db",
     "title":"Harry Potter and the Chamber of secrets",
-    "thumbnail":"https://www.google.com/imgres?q=Harry%20Potter%20and%20the%20Chamber%20of%20Secrets%20J.%20K.%20Rowling&imgurl=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FS%2Fcompressed.photo.goodreads.com%2Fbooks%2F1598823199i%2F28141183.jpg&imgrefurl=https%3A%2F%2Fwww.goodreads.com%2Fbook%2Fshow%2F28141183&docid=DTlkcpd0pwdYOM&tbnid=ynZ7OTWmZtfjPM&vet=12ahUKEwjKh_yUuYyNAxXbgFYBHc_DLzEQM3oFCIABEAA..i&w=333&h=500&hcb=2&ved=2ahUKEwjKh_yUuYyNAxXbgFYBHc_DLzEQM3oFCIABEAA",
-    "dueDate":"2025-10-01",
+    "thumbnail":"https://www.google.com/imgres?q=Harry%20Potter%20and%20the%20Chamber%20of%20Secrets%20J.%20K.%20Rowling&imgurl=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FS%2Fcompressed.photo.goodreads.com%2Fbooks%2F1598823199i%2F28141183.jpg&imgrefurl=https%3A%2F%2Fwww.goodreads.com%2Fbook%2Fshow%2F28141183&docid=DTlkcpd0pwdYOM&tbnid=ynZ7OTWmZtfjPM&vet=12ahUKEwjKh_yUuYyNAxXbgFYBHc_DLzEQM3oFCIABEAA..i&w=333&h=500&hcb=2&ved=2ahUKEwjKh_yUuYyNAxXbgFYBHc_DLzEQM3oFCIABEAA"
+
 } 
 
 
