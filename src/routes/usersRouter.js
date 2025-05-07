@@ -1,43 +1,22 @@
 import express from "express";
+
+import { userAuthMiddleware } from "../middlewares/authMiddleware.js";
 import { responseClient } from "../middlewares/responseClient.js";
-import { jwtVerify } from "../utils/jwt.js";
-import { getSession } from "../models/sessions/sessionModel.js";
-import { getUserByEmaiL } from "../models/users/UserModel.js";
+import { sanitizeUser } from "../utils/sanitizerUser.js";
 
 const router = express.Router();
+//api/v1/users
+router.get("/profile", userAuthMiddleware, async (req, res) => {
+  //removes sensitive data from the user object
+  const sanitizedUser = sanitizeUser(req.userInfo);
+  console.log("After sanitization:", sanitizedUser);
 
-router.get("/profile", async (req, res, next) => {
-  const { authorization } = req.headers;
-  let message = "Unauthorized";
-  //get accesss jwt
-  if (authorization) {
-    const token = authorization.split(" ")[1];
-
-    // check if acces jwt is valid
-    const decoded = await jwtVerify(token);
-
-    if (decoded.email) {
-      //session if access tokem exist in session table
-      const tokenSession = await getSession({ token });
-      if (tokenSession?._id) {
-        //get user email
-        const { email } = decoded;
-        const user = await getUserByEmaiL(email);
-        if (user?._id && user.status === "active") {
-          // if (user?._id) {
-          //return the user
-          req.userInfo = user;
-          return res.status(200).json({
-            status: "sucess",
-            message: user,
-          });
-        }
-      }
-    }
-
-    message = decoded === "jwt expired" ? decoded : "Unauthorized";
-  }
-  responseClient({ req, res, message, statusCode: 401 });
+  return responseClient({
+    req,
+    res,
+    message: "user Profile",
+    payload: sanitizedUser,
+  });
 });
 
 export default router;

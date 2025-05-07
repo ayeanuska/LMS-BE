@@ -28,13 +28,6 @@ if (process.env.NODE_ENV !== "production") {
 //request body parser
 app.use(cors());
 
-//route
-// app.get("/", (req, res) => {
-//   res.json({
-//     message: "its live",
-//   });
-// });
-
 //auth route
 app.use("/api/v1/auth", authRouter);
 

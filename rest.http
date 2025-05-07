@@ -38,8 +38,10 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5j
 
 
 ###get user profile
-GET  {{rooturl}}/users/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJfaWQiOiI2N2ViNjczMDBkN2Q0MzQ0MjhlODk3M2IiLCJpYXQiOjE3NDU5MDYzMzYsImV4cCI6MTc0NTk5MjczNn0.4TaxA7KbPX2lPPkwK_gzomY5kklvPw1OX1Evj49-TTc
+GET {{rooturl}}/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJfaWQiOiI2ODEwN2RhNzI1NzUzYjAzNTE3YzkyZDciLCJpYXQiOjE3NDY2NTQyMzYsImV4cCI6MTc0Njc0MDYzNn0.2IfZGObj55ZSCaLH2Xlg4aQ8HuEC-wZDDaV9antD8so
+
+
 ###create a book 
 
 POST {{bookEP}}
