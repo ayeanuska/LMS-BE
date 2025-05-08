@@ -2,6 +2,7 @@ import express from "express";
 import {
   loginValidator,
   registerValidator,
+  resetUserValidator,
 } from "../middlewares/joiValidation.js";
 
 import {
@@ -10,10 +11,10 @@ import {
   login,
   register,
   renewJWT,
+  resetNewPassword,
 } from "../controllers/authControllers.js";
 import {
   authenticate,
-  isAdmin,
   refreshAuthenticate,
 } from "../middlewares/authMiddleware.js";
 
@@ -33,5 +34,8 @@ router.get("/renew-jwt", refreshAuthenticate, renewJWT);
 
 //requestotp
 router.post("/otp", generateOtp);
+
+//reset password
+router.post("/reset-password", resetUserValidator, resetNewPassword);
 
 export default router;

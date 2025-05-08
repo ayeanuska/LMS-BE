@@ -7,8 +7,14 @@ import { compareText, encryptText } from "../utils/bcrypt.js";
 import { jwtSign, refreshjwtSign } from "../utils/jwt.js";
 import { responseClient } from "../middlewares/responseClient.js";
 import { generaterandomOTP } from "../utils/randomGenerator.js";
-import { createNewSession } from "../models/sessions/sessionModel.js";
-import { passwordResetOTPNotifEmail } from "../services/email/emailService.js";
+import {
+  createNewSession,
+  getSession,
+} from "../models/sessions/sessionModel.js";
+import {
+  passwordResetOTPNotifEmail,
+  passwordUpdateNotifEmail,
+} from "../services/email/emailService.js";
 
 export const login = async (req, res, next) => {
   try {
@@ -133,6 +139,7 @@ export const renewJWT = async (req, res, next) => {
   });
 };
 
+//generate otp
 export const generateOtp = async (req, res, next) => {
   try {
     //get email
@@ -171,4 +178,49 @@ export const generateOtp = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+//reset password
+
+export const resetNewPassword = async (req, res, next) => {
+  try {
+    console.log(req.body);
+
+    const { email, password, otp } = req.body;
+
+    //check otp in session table
+    const session = await getSession({
+      token: otp,
+      association: email,
+    });
+
+    if (session?._id) {
+      //encrypt the password
+
+      const hassPass = encryptText(password);
+      //update user table
+
+      const user = await updateUser({ email }, { password: hassPass });
+
+      if (user?.id) {
+        // send email update notification
+
+        passwordUpdateNotifEmail({ name: user.fName, email });
+
+        responseClient({
+          req,
+          res,
+          statusCode,
+          message: "Password updated succesfully. YOu Can Login now",
+        });
+      }
+    }
+
+    responseClient({
+      req,
+      res,
+      statusCode: 400,
+      message: "Invalid date or token expired",
+    });
+  } catch (error) {}
 };

@@ -47,3 +47,23 @@ export const passwordResetOTPSendTemplate = ({ email, name, otp }) => {
           `, // html body
   };
 };
+export const passwordUpdateNotifTemplate = ({ email, name, otp }) => {
+  return {
+    from: `"Library MGMT" <${process.env.SMTP_EMAIL}>`, // sender address
+    //"bar@example.com, baz@example.com", // list of receivers
+    to: email,
+    subject: "Your password has been updated", // Subject line
+    text: `Dear ${name}, your account has been just updated. If this wasn't you change your password and contact us. `, // plain text body
+    html: `<p>Dear ${name} </p>
+          <br/>
+          <br/>
+          <br/> 
+         <p> your account has been just updated. If this wasn't you change your password and contact us. </p>
+          <br/>   
+          <br/>
+      
+          Reagrds,
+          <p>Library Management</p>
+          `, // html body
+  };
+};

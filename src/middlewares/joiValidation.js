@@ -33,6 +33,16 @@ export const registerValidator = (req, res, next) => {
   joiValidator(registerSchema, req, res, next);
 };
 
+//password reset validator
+export const resetUserValidator = (req, res, next) => {
+  const resetPwSchema = Joi.object({
+    email: Joi.string().email({ minDomainSegments: 2 }).required(),
+    password: Joi.string().required(),
+    otp: Joi.number().min(999).max(9999).required(),
+  });
+  joiValidator(resetPwSchema, req, res, next);
+};
+
 // create book validator
 export const createBookValidator = (req, res, next) => {
   const createBookSchema = Joi.object({

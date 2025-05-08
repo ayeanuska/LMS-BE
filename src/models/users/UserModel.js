@@ -13,8 +13,8 @@ export const getUserByEmaiL = (email) => {
 };
 
 //update user
-export const updateUser = (filter, UpdatedUserObeject) => {
-  return UserSchema.findOneAndUpdate({ filter, UpdatedUserObeject });
+export const updateUser = (filter, UpdatedUserObject) => {
+  return UserSchema.findOneAndUpdate({ filter, UpdatedUserObject });
 };
 
 // delete User

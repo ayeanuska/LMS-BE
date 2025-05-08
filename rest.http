@@ -46,11 +46,22 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5j
 
 ### request otp
 POST {{authEP}}/otp
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhbUBnbWFpbC5jb20iLCJfaWQiOiI2ODEwNmU0MjI1NzUzYjAzNTE2MThiYjIiLCJpYXQiOjE3NDY2OTY0MDEsImV4cCI6MTc0Njc4MjgwMX0.uy66Q8WoCemYurxKBAE0IcbwMinwtTQALY23S04pk_s
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhbUBnbWFpbC5jb20iLCJfaWQiOiI2ODEwNmU0MjI1NzUzYjAzNTE2MThiYjIiLCJpYXQiOjE3NDY3MTQ4ODUsImV4cCI6MTc0NjgwMTI4NX0.ucqtgi7LPmwhpZdi-wGJKajywLQsvA1Fpu2DwndRvPI
+Content-Type: application/json
+ 
+{
+    "email":"ram@gmail.com"
+}
+
+### reset password
+POST {{authEP}}/reset-password
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhbUBnbWFpbC5jb20iLCJfaWQiOiI2ODEwNmU0MjI1NzUzYjAzNTE2MThiYjIiLCJpYXQiOjE3NDY3MTQ4ODUsImV4cCI6MTc0NjgwMTI4NX0.ucqtgi7LPmwhpZdi-wGJKajywLQsvA1Fpu2DwndRvPI
 Content-Type: application/json
 
 {
-    "email":"ram@gmail.com"
+    "email":"ram@gmail.com",
+    "password":"222@Th991",
+    "otp":"6690"
 }
 
 ###get user profile
