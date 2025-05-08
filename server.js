@@ -8,7 +8,7 @@ import { errorHandler } from "./src/middlewares/errorHandler.js";
 import authRouter from "./src/routes/authRouter.js";
 import bookRouter from "./src/routes/bookRouter.js";
 import borrowRouter from "./src/routes/borrowRouter.js";
-import usersRoute from "./src/routes/usersRouter.js";
+import profileRouter from "./src/routes/profileRouter.js";
 
 //for req.body
 const app = express();
@@ -32,7 +32,7 @@ app.use(cors());
 app.use("/api/v1/auth", authRouter);
 
 //user route
-app.use("/api/v1/users", usersRoute);
+app.use("/api/v1/users", profileRouter);
 //book route
 app.use("/api/v1/books", bookRouter);
 

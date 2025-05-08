@@ -1,4 +1,3 @@
-import { request } from "express";
 import {
   CreateNewUser,
   getUserByEmaiL,
@@ -6,6 +5,9 @@ import {
 } from "../models/users/UserModel.js";
 import { compareText, encryptText } from "../utils/bcrypt.js";
 import { jwtSign, refreshjwtSign } from "../utils/jwt.js";
+import { responseClient } from "../middlewares/responseClient.js";
+import { generaterandomOTP } from "../utils/randomGenerator.js";
+import { createNewSession } from "../models/sessions/sessionModel.js";
 
 export const login = async (req, res, next) => {
   try {
@@ -128,4 +130,35 @@ export const renewJWT = async (req, res, next) => {
     message: "token refreshed",
     accessToken: token,
   });
+};
+
+export const generateOtp = async () => {
+  try {
+    //get email
+    const { email } = req.body;
+    console.log(email);
+
+    //get user by email
+    const user = getUserByEmaiL(email);
+
+    if (user?._id) {
+    }
+    //generateotp
+    const otp = generaterandomOTP();
+    console.log(otp);
+
+    //store in session table
+    const session = await createNewSession({
+      token: otp,
+      association: email,
+    });
+
+    if (session?._id) {
+      console.log(session);
+    }
+
+    // send otm to user email
+    // respond client
+    responseClient({ res, res, message: "OTP is sent to your email" });
+  } catch (error) {}
 };

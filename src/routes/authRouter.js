@@ -5,6 +5,7 @@ import {
 } from "../middlewares/joiValidation.js";
 
 import {
+  generateOtp,
   getUserDetail,
   login,
   register,
@@ -29,5 +30,8 @@ router.get("/", authenticate, getUserDetail);
 
 //renew jwt
 router.get("/renew-jwt", refreshAuthenticate, renewJWT);
+
+//requestotp
+router.post("/otp", generateOtp);
 
 export default router;

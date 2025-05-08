@@ -6,6 +6,15 @@ const sessionSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    association: {
+      type: String,
+    },
+    expire: {
+      type: Date,
+      required: true,
+      default: new Date(Date.now() + 36000000000), //1 hr
+      expires: 0,
+    },
   },
   {
     timestamps: true,

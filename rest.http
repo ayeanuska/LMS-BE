@@ -37,6 +37,22 @@ GET {{authEP}}
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzMTc4MTMsImV4cCI6MTc0NTQwNDIxM30.f0UlNbCso3ZylAw70BiMK4Ls8OfWH8TebKzWJXngXJY
 
 
+
+### renew jwt
+GET {{authEP}}/renew-jwt
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzMTc4MTMsImV4cCI6MTc0NTQwNDIxM30.f0UlNbCso3ZylAw70BiMK4Ls8OfWH8TebKzWJXngXJY
+
+
+
+### request otp
+POST {{authEP}}/otp
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJfaWQiOiI2ODEwN2RhNzI1NzUzYjAzNTE3YzkyZDciLCJpYXQiOjE3NDY2NzE2OTgsImV4cCI6MTc0Njc1ODA5OH0.Ll5pC40YCl0hsNs9rNTxWlGZVFNcvapqtFKjmpF8KSY
+Content-Type: application/json
+
+{
+    "email":"ram@gmail.com"
+}
+
 ###get user profile
 GET {{rooturl}}/users/profile
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJfaWQiOiI2ODEwN2RhNzI1NzUzYjAzNTE3YzkyZDciLCJpYXQiOjE3NDY2NTQyMzYsImV4cCI6MTc0Njc0MDYzNn0.2IfZGObj55ZSCaLH2Xlg4aQ8HuEC-wZDDaV9antD8so
@@ -99,11 +115,6 @@ Content-Type: application/json
 Delete {{bookEP}}/67b3fffe911837ea59730340
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzMTc4MTMsImV4cCI6MTc0NTQwNDIxM30.f0UlNbCso3ZylAw70BiMK4Ls8OfWH8TebKzWJXngXJY
 
-
-
-### renew jwt
-GET {{authEP}}/renew-jwt
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJpYXQiOjE3NDUzMTc4MTMsImV4cCI6MTc0NTQwNDIxM30.f0UlNbCso3ZylAw70BiMK4Ls8OfWH8TebKzWJXngXJY
 
 
 ///borrow

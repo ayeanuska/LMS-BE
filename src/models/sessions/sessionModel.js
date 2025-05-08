@@ -1,7 +1,7 @@
 import SessionSchema from "./sessionSchema.js";
 
 //insert new session
-export const createNewSchema = (sessionObj) => {
+export const createNewSession = (sessionObj) => {
   return SessionSchema(sessionObj).save();
 };
 
@@ -15,6 +15,10 @@ export const getSession = (filter) => {
 
 export const insertToken = async (obj) => {
   return await SessionSchema(obj).save();
+};
+
+export const deleteManySessions = (filter) => {
+  return SessionSchema.findOneAndDelete(filter);
 };
 
 export const findToken = (token) => {
