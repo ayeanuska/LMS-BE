@@ -1,6 +1,6 @@
 export const userActivationUrlEmailTemplate = ({ email, name, url }) => {
   return {
-    from: `"SERENE MGMT" <${process.env.SMTP_EMAIL}>`, // sender address
+    from: `"Library MGMT" <${process.env.SMTP_EMAIL}>`, // sender address
     //"bar@example.com, baz@example.com", // list of receivers
     to: email,
     subject: "Action required - Activate your new account ✔", // Subject line
@@ -18,7 +18,7 @@ export const userActivationUrlEmailTemplate = ({ email, name, url }) => {
         <br/>
     
         Reagrds,
-        <p>Serene Management</p>
+        <p>Library Management</p>
         `, // html body
   };
 };
