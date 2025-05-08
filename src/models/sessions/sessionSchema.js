@@ -9,7 +9,7 @@ const sessionSchema = new mongoose.Schema(
     association: {
       type: String,
     },
-    expire: {
+    expires: {
       type: Date,
       required: true,
       default: new Date(Date.now() + 36000000000), //1 hr

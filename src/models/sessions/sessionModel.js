@@ -18,7 +18,7 @@ export const insertToken = async (obj) => {
 };
 
 export const deleteManySessions = (filter) => {
-  return SessionSchema.findOneAndDelete(filter);
+  return SessionSchema.deleteMany(filter);
 };
 
 export const findToken = (token) => {

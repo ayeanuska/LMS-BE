@@ -1,7 +1,7 @@
 export const responseClient = ({ req, res, message, statusCode = 200 }) => {
   //success response
 
-  req.sucess = () => {
+  req.success = () => {
     return res.status(statusCode).json({
       status: "success",
       message,

@@ -16,7 +16,7 @@ POST {{authEP}}/login
 Content-Type: application/json
 
 {
-    "email":"anu@gmail.com",
+    "email":"ram@gmail.com",
     "password":"1234"
 }
 
@@ -46,7 +46,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5j
 
 ### request otp
 POST {{authEP}}/otp
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudUBnbWFpbC5jb20iLCJfaWQiOiI2ODEwN2RhNzI1NzUzYjAzNTE3YzkyZDciLCJpYXQiOjE3NDY2NzE2OTgsImV4cCI6MTc0Njc1ODA5OH0.Ll5pC40YCl0hsNs9rNTxWlGZVFNcvapqtFKjmpF8KSY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhbUBnbWFpbC5jb20iLCJfaWQiOiI2ODEwNmU0MjI1NzUzYjAzNTE2MThiYjIiLCJpYXQiOjE3NDY2OTY0MDEsImV4cCI6MTc0Njc4MjgwMX0.uy66Q8WoCemYurxKBAE0IcbwMinwtTQALY23S04pk_s
 Content-Type: application/json
 
 {

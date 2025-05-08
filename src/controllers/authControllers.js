@@ -8,6 +8,7 @@ import { jwtSign, refreshjwtSign } from "../utils/jwt.js";
 import { responseClient } from "../middlewares/responseClient.js";
 import { generaterandomOTP } from "../utils/randomGenerator.js";
 import { createNewSession } from "../models/sessions/sessionModel.js";
+import { passwordResetOTPNotifEmail } from "../services/email/emailService.js";
 
 export const login = async (req, res, next) => {
   try {
@@ -132,14 +133,14 @@ export const renewJWT = async (req, res, next) => {
   });
 };
 
-export const generateOtp = async () => {
+export const generateOtp = async (req, res, next) => {
   try {
     //get email
     const { email } = req.body;
     console.log(email);
 
     //get user by email
-    const user = getUserByEmaiL(email);
+    const user = typeof email === "string" ? await getUserByEmaiL(email) : null;
 
     if (user?._id) {
     }
@@ -155,10 +156,18 @@ export const generateOtp = async () => {
 
     if (session?._id) {
       console.log(session);
+      // after storing session token in dp, send otp to user email
+      const info = await passwordResetOTPNotifEmail({
+        email,
+        name: user.fName,
+        otp,
+      });
+      console.log(info);
     }
 
-    // send otm to user email
     // respond client
-    responseClient({ res, res, message: "OTP is sent to your email" });
-  } catch (error) {}
+    responseClient({ req, res, message: "OTP is sent to your email" });
+  } catch (error) {
+    next(error);
+  }
 };

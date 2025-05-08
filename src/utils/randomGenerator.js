@@ -1,7 +1,7 @@
 export const generaterandomOTP = (length = 4) => {
-  const str = "";
+  let str = "";
 
-  for (let i = 0; index < 4; i++) {
+  for (let i = 0; i < 4; i++) {
     str += Math.floor(Math.random() * 10); //0-9
   }
 
