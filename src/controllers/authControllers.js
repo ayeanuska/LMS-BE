@@ -197,7 +197,7 @@ export const resetNewPassword = async (req, res, next) => {
     if (session?._id) {
       //encrypt the password
 
-      const hassPass = encryptText(password);
+      const hassPass = await encryptText(password);
       //update user table
 
       const user = await updateUser({ email }, { password: hassPass });
@@ -207,20 +207,28 @@ export const resetNewPassword = async (req, res, next) => {
 
         passwordUpdateNotifEmail({ name: user.fName, email });
 
-        responseClient({
+        return responseClient({
           req,
           res,
-          statusCode,
-          message: "Password updated succesfully. YOu Can Login now",
+          statusCode: 200,
+          message: "Password updated succesfully. You can Login now",
         });
       }
     }
 
-    responseClient({
+    return responseClient({
       req,
       res,
       statusCode: 400,
-      message: "Invalid date or token expired",
+      message: "Invalid otp or token expired",
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+    return responseClient({
+      req,
+      res,
+      statusCode: 400,
+      message: "Error occured during password reset",
+    });
+  }
 };
