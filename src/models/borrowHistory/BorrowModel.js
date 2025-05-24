@@ -12,7 +12,7 @@ export const getBorrows = (borrowObj) => {
 
 //get borrow by id
 export const getBorrowsByUserId = (userId) => {
-  return BorrowSchema.find({ userId });
+  return BorrowSchema.find({ userId }).populate("bookId");
 };
 
 //update borrow
