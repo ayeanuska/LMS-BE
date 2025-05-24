@@ -4,7 +4,7 @@ import {
   getSingleBook,
   insertBook,
   updateBook,
-} from "../models/books/BookModel.js";
+} from "../models/books/BookModel";
 
 export const createBook = async (req, res, next) => {
   try {
