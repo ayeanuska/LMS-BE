@@ -62,11 +62,11 @@ export const singleBookController = async (req, res, next) => {
         })
       : next({
           status: 400,
-          messgae: "book cannot be fetched",
+          message: "book cannot be fetched",
         });
   } catch (error) {
     next({
-      ststus: 500,
+      status: 500,
       message: "Error fetching book",
     });
   }

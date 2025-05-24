@@ -29,7 +29,7 @@ const BorrowSchema = new mongoose.Schema(
       default: "borrowed",
     },
     thumbnail: {
-      type: "string",
+      type: "String",
       required: true,
     },
   },

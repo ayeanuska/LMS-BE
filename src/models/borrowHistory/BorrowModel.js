@@ -12,10 +12,10 @@ export const getBorrows = (borrowObj) => {
 
 //get borrow by id
 export const getBorrowsByUserId = (userId) => {
-  return BorrowSchema.find(userId);
+  return BorrowSchema.find({ userId });
 };
 
 //update borrow
 export const updateBorrowById = (id, updateObj) => {
-  return BorrowSchema.findByIdandUpdate(id, updateObj);
+  return BorrowSchema.findByIdAndUpdate(id, updateObj);
 };

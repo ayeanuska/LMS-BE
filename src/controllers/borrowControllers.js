@@ -2,6 +2,7 @@ import { updateBook } from "../models/books/BookModel.js";
 import {
   getBorrowsByUserId,
   insertBorrow,
+  updateBorrowById,
 } from "../models/borrowHistory/BorrowModel.js";
 
 export const createBorrow = async (req, res, next) => {
@@ -53,6 +54,7 @@ export const fetchBorrow = async (req, res, next) => {
 
     // 2. get borrow history of the particular user
     const borrows = await getBorrowsByUserId(userId);
+    console.log("Borrows fouund in db, borrows");
 
     return res
       .status(200)
@@ -67,30 +69,35 @@ export const fetchBorrow = async (req, res, next) => {
   }
 };
 
-// export const returnBorrow = async (req, res, next) => {
-//   try {
-//     // 1. get the boorrow id
-//     const { id } = req.params;
+export const returnBorrow = async (req, res, next) => {
+  try {
+    // 1. get the boorrow id
+    const { id } = req.params;
 
-//     // 2. update the borrow record
-//     const borrowUpdate = await updateBorrowById(id, {
-//       status: "returned",
-//     });
-//     //  3. update th book record
-//     console.log("Updated book", borrowUpdate);
+    // 2. update the borrow record
+    const borrowUpdate = await updateBorrowById(
+      id,
+      {
+        status: "returned",
+        returnDate: new Date(),
+      },
+      { new: true }
+    );
+    //  3. update the book record
+    console.log("Updated book", borrowUpdate);
 
-//     const bookUpdate = await updateBook(borrowUpdate.bookId, {
-//       isAvailable: true,
-//     });
-//     return res.json({
-//       status: " success",
-//       message: "Book returned",
-//     });
-//   } catch (error) {
-//     console.log(error.message);
-//     next({
-//       statusCodE: 400,
-//       message: error?.message,
-//     });
-//   }
-// };
+    const bookUpdate = await updateBook(borrowUpdate.bookId, {
+      isAvailable: true,
+    });
+    return res.json({
+      status: " success",
+      message: "Book returned",
+    });
+  } catch (error) {
+    console.log(error.message);
+    next({
+      statusCodE: 400,
+      message: error?.message,
+    });
+  }
+};
