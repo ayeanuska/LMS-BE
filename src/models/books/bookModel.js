@@ -14,7 +14,7 @@ export const getSingleBook = (_id) => {
 };
 export const updateBook = (_id, bookObj) => {
   if ("_id" in bookObj) {
-    delete bookObj._Id;
+    delete bookObj._id;
   }
   return BookSchema.findByIdAndUpdate(_id, bookObj, { new: true });
 };

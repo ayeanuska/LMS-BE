@@ -90,13 +90,13 @@ export const returnBorrow = async (req, res, next) => {
       isAvailable: true,
     });
     return res.json({
-      status: " success",
+      status: "success",
       message: "Book returned",
     });
   } catch (error) {
     console.log(error.message);
     next({
-      statusCodE: 400,
+      statusCode: 400,
       message: error?.message,
     });
   }
