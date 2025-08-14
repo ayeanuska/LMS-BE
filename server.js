@@ -9,6 +9,7 @@ import authRouter from "./src/routes/authRouter.js";
 import bookRouter from "./src/routes/bookRouter.js";
 import borrowRouter from "./src/routes/borrowRouter.js";
 import profileRouter from "./src/routes/profileRouter.js";
+import reviewRouter from "./src/routes/reviewRouter.js";
 
 //for req.body
 const app = express();
@@ -38,6 +39,9 @@ app.use("/api/v1/books", bookRouter);
 
 //borrow route
 app.use("/api/v1/borrows", borrowRouter);
+
+//review route
+app.use("/api/v1/review", reviewRouter);
 
 //error handler
 app.use(errorHandler);

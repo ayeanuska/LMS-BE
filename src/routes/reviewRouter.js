@@ -1,15 +1,10 @@
 import express from "express";
-import { authenticate, isAdmin } from "../middlewares/authMiddleware";
-import {
-  getAllReviews,
-  insertReview,
-  updateReviewById,
-} from "../models/reviews/ReviewModel";
+import { authenticate, isAdmin } from "../middlewares/authMiddleware.js";
 import {
   createReview,
   fetchReview,
   updateReview,
-} from "../controllers/reviewController";
+} from "../controllers/reviewController.js";
 
 const router = express.Router();
 
